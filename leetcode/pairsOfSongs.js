@@ -16,4 +16,4 @@
 };
 
 
-console.log(numPairsDivisibleBy60([60, 60, 60]))
+console.log(numPairsDivisibleBy60([30, 20, 150, 100, 40]))
