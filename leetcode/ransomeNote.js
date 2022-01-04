@@ -9,7 +9,6 @@
     const tempMagazine = magazine.split("");
 
     for(let i = 0; i < ransomNote.length; i++) {
-        // console.log(tempMagazine.indexOf(ransomNote[i]))
         if(tempMagazine.indexOf(ransomNote[i]) !== -1) {
             const idx = tempMagazine.indexOf(ransomNote[i]);
             tempMagazine.splice(idx, 1, "0");
@@ -17,8 +16,6 @@
             return false;
         }
     }
-
-    // console.log(tempMagazine);
     return true;
 };
 
