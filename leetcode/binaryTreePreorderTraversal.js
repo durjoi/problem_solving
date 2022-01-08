@@ -13,6 +13,8 @@
  * @return {number[]}
  */
 
+// Recursive Way
+
  const traversNode = (root, value) => {
     if(root === null) return null
     value.push(root.val);
@@ -24,4 +26,24 @@ var preorderTraversal = function(root) {
     let value = []
     traversNode(root, value);
     return value;
+};
+
+// Iterative way
+var preorderTraversal = function(root) {
+    let stack = [];
+    let ans = [];
+    
+    if(root === null) return ans;
+    
+    stack.push(root);
+    
+    while(stack.length > 0) {
+        const data = stack.pop();
+        ans.push(data.val);
+        if(data.right) stack.push(data.right);
+        if(data.left) stack.push(data.left);
+    }
+    
+    return ans;
+    
 };
