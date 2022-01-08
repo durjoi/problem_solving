@@ -12,6 +12,8 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+// Recursive way 
+
  const traversTree = (root, ans) => {
     if(root === null) return null;
     traversTree(root.left, ans);
@@ -22,6 +24,38 @@
 var postorderTraversal = function(root) {
     let ans = [];
     traversTree(root, ans);
+    
+    return ans;
+};
+
+// Iterative Way
+var postorderTraversal = function(root) {
+    let ans = [];
+    let stack = [];
+    
+    if(root === null) return ans;
+    
+    stack.push(root)
+    
+    while(stack.length > 0)
+    {
+        let current = stack[stack.length - 1];
+        
+        if(current.left === null && current.right === null) {
+            ans.push(current.val);
+            stack.pop();
+        } else {
+            if(current.right != null) {
+                stack.push(current.right);
+                current.right = null;
+            }
+            if(current.left != null) {
+                stack.push(current.left);
+                current.left = null;
+            }
+        }
+        
+    }
     
     return ans;
 };
